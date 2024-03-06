@@ -25,7 +25,7 @@ function RandonCat() {
         <ul>
           {data.map(item => (
             <li key={item.id}> {/* Use a unique identifier for each item */}
-              <img width={item.width} height={item.height} src={item.url} />
+              <img width={item.width} height={item.height} src={item.url} alt='cat'/>
             </li>
           ))}
         </ul>
