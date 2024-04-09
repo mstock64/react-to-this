@@ -15,14 +15,16 @@ function RandomCat() {
     fetchData();
   }, []); 
 
+  
+
   return (
     <div>
       {data.length > 0 ? (
         
         <span>
           {data.map(item => (
-            <><span key={item.id}> {/* Use a unique identifier for each item */}
-              <Image boxSize='540px' src={item.url} alt='cat' />
+            <><span key={item.id}>
+                  <Image boxSize='540px' src={item.url} alt='cat' margin-left='auto' margin-right='auto' />
             </span><br/><p>
                 Source: {item.url}
               </p>
