@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Image } from '@chakra-ui/react'
-function RandomCat() {
-  const [data, setData] = useState([]); 
-  const fetchData = async () => {
-    try {
-      const response = await fetch('https://api.thecatapi.com/v1/images/search');
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error(error);
-    }}
+import FetchData  from './AnimalCardComponentUtils';
 
-  useEffect(() => {
-    fetchData();
+
+
+function AnimalCardComponent({name}) {
+  const [data, setData] = useState([FetchData()]); 
+  
+  let result = async () => {
+    let dataum = await FetchData(name)
+    setData(dataum);
+    return dataum;
+  }
+  useEffect( () => {
+    setData(result());
   }, []); 
 
   
@@ -20,7 +21,6 @@ function RandomCat() {
   return (
     <div>
       {data.length > 0 ? (
-        
         <span>
           {data.map(item => (
             <><span key={item.id}>
@@ -29,7 +29,7 @@ function RandomCat() {
                 Source: {item.url}
               </p>
               
-              <Button onClick={fetchData}>New Cat</Button>
+              <Button onClick={result}>New Cat</Button>
             </>
             
           ))}
@@ -42,4 +42,5 @@ function RandomCat() {
   );
 }
 
-export default RandomCat;
+export default AnimalCardComponent;
+
