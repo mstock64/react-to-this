@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Image } from '@chakra-ui/react'
+import './RandomCat.css';
 function RandomCat() {
   const [data, setData] = useState([]); 
   const fetchData = async () => {
@@ -20,11 +21,10 @@ function RandomCat() {
   return (
     <div>
       {data.length > 0 ? (
-        
         <span>
           {data.map(item => (
-            <><span key={item.id}>
-                  <Image boxSize='540px' src={item.url} alt='cat' margin-left='auto' margin-right='auto' />
+              <><span key={item.id}> {/* Use a unique identifier for each item */}
+                  <Image class='mid' boxSize='540px' src={item.url} alt='cat' />
             </span><br/><p>
                 Source: {item.url}
               </p>
