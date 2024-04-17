@@ -1,70 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Image, Stack } from '@chakra-ui/react'
+import React, { useState, useEffect, useCallback } from 'react';
+import { Button, Center, Image } from '@chakra-ui/react'
 import FetchData  from './AnimalCardComponentUtils';
 
 function AnimalCardComponent({name}) {
-  let forward = [];
-  let backward = [];
   const [data, setData] = useState([]); 
   
-  
-  
-  let result = async () => {
-    let dataum = await FetchData(name)
-    setData(dataum);
-    return dataum;
-  }
-  
-  async function goForward() {
-    if(forward.length > 0){
-      let tmpDt = forward.pop();
-      backward.push(tmpDt);
-      setData(tmpDt);
-    }
-    else{
-      let tmpDt = await result();
-      backward.push(tmpDt);
-    }
-  }
-
-  function goBackward(){
-    alert(backward.length);
-    if(backward.length > 0){
-
-      let tmpDt = backward.pop();
-      alert(tmpDt.url);
-      forward.push(tmpDt);
-      setData(tmpDt);
-    }
-  }
-
-
-
-
+  const changePhoto = useCallback( async () => {
+      let payload = await FetchData(name)
+      setData(payload);      
+      return payload;
+  }, [name]);
 
   useEffect( () => {
-    setData(result());
-  }, []); 
+     changePhoto()
+  }, [changePhoto]); 
 
-  
 
   return (
     <div>
       {data.length > 0 ? (
         <span>
           {data.map(item => (
-            <><span key={item.id}>
-                  <Image boxSize='540px' src={item.url} alt='cat' margin-left='auto' margin-right='auto' />
-            </span><br/><p>
+            <>
+                <Center>
+                  <Image borderRadius='lg' boxSize='640px' src={item.url} alt='cat' />
+                  </Center>
+            <br/><p>
                 Source: {item.url}
               </p>
+              <Button onClick={changePhoto}>New {name}</Button>
               
-              <div>
-                <Stack direction='row' spacing={4} >
-                  <Button onClick={goBackward}>Backward</Button>
-                  <Button onClick={goForward}>Forward</Button>
-                </Stack>
-              </div>
             </>
             
           ))}
