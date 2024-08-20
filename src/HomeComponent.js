@@ -1,7 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import ParentAnimalComponent from './AnimalCardComponent/ParentAnimalComponent';
 import AnimalCardComponent from './AnimalCardComponent/AnimalCardComponent'
-import FetchData from './AnimalCardComponent/AnimalCardComponentUtils';
 let showDog = false
 let showCat = false
 
