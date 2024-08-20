@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import AnimalCardComponent from './AnimalCardComponent/AnimalCardComponent'
 let showDog = false
 let showCat = false
@@ -32,18 +32,18 @@ function HomeComponent() {
             </>) : ('')}
             <div class="grid grid-cols-2 m-3 p-2 sticky top-2 bg-gray-100 rounded-lg shadow-md w-44 mx-auto">
                 <div class="border-r-2 border-black">
-                    <a onClick={() => {
+                    <button onClick={() => {
                         setCatState(toggleCat())    
                         if(showDog)
                             setDogState(toggleDog())
-                    }}  > Cats </a>
+                    }} > Cats </button>
                 </div>
                 <div>
-                    <a onClick={() => {
+                    <button  onClick={() => {
                         setDogState(toggleDog())
                         if(showCat)
                             setCatState(toggleCat())
-                    }}> Dogs </a> 
+                    }}> Dogs </button> 
                 </div>
             </div>
            

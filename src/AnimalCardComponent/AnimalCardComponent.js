@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import FetchData from './AnimalCardComponentUtils';
 
 
@@ -8,7 +8,7 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
   const [previousData, setPreviousData] = useState([])
   const [forwardData, setForwardData] = useState([])
 
-  const changePhoto = useCallback(async () => {
+  const changePhoto = async () => {
     let payload = await FetchData(name)
     
     let previous = previousData
@@ -18,19 +18,11 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
     setData(payload);
 
     console.log(previousData.length)
-    logIt()
-  });
+  };
 
-  useEffect(() => {
-    changePhoto();
+ 
 
-  }, [state])
-
-  const logIt = () => {
-    console.log(previousData)
-    console.log(forwardData)
-  }
-  const goBack = useCallback(() => {
+  const goBack = () => {
 
     let previous = previousData
     let forward = forwardData
@@ -42,10 +34,9 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
     setData(curr)
     setPreviousData(previous)
     setForwardData(forward)
-    logIt()
     
-  });
-  const goForward = useCallback(() => {
+  };
+  const goForward = () => {
     let previous = previousData
     let forward = forwardData
     
@@ -58,8 +49,7 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
     setData(curr)
     setPreviousData(previous)
     setForwardData(forward)
-    logIt() 
-  });
+  };
   const transformstate = () => {
     if(forwardData.length > 0)
       goForward()
@@ -95,7 +85,13 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
 
         </span>
       ) : (
+        <div>
         <p>Loading data...</p>
+        {setTimeout(() => {
+          changePhoto()
+        }, 30)}
+        </div>
+      
       )}
     </div>
   );
