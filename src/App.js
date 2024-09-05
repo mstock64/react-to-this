@@ -1,12 +1,13 @@
 import './App.css';
 import HomeComponent from './HomeComponent';
+import Navbar from './Navbar/Navbar';
 
 function App() {
   
   return (
 
     <div className="App">
-      <HomeComponent name='cat'/>
+      <Navbar/>
     </div>
   );
 }
