@@ -25,7 +25,7 @@ function HomeComponent() {
         <div class=''>
              {!dogState && !catState ? (<>
                 <div className='m-2 mb-10 p-3 bg-gray-200 rounded-xl w-fit mx-auto shadow-md'>
-                    <p class='text-2xl text-center'> Weclome to the Random Dog and Cat Photo Generator</p> <br/>
+                    <p class='text-2xl text-center'> Welcome to the Random Dog and Cat Photo Generator</p> <br/>
                     <p  class='text-lg text-center'> Please select type of animal you would like to see photos of on the nav above</p>
                 </div>
             
