@@ -1,12 +1,15 @@
+
 import './App.css';
-import HomeComponent from './HomeComponent';
+import { LandingPage } from './LandingPage';
+
 
 function App() {
   
   return (
 
-    <div className="App">
-      <HomeComponent name='cat'/>
+    <div className="bg-[url('./images/large-triangles.svg')] w-full h-full ">
+        <LandingPage/>
+        
     </div>
   );
 }
