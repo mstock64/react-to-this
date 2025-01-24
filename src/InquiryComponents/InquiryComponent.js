@@ -17,7 +17,7 @@ export function InquiryComponent() {
         setRequestType("")
     }
     return (
-        <div className=" m-3 p-4 rounded-md text-black bg-white shadow-sm shadow-black">
+        <div className=" m-3 p-4 rounded-md text-black bg-white shadow-sm shadow-black border-slate-300 border-2">
             <p className="mb-3">
                 Please feel free to reach out we offer for consituation on all Technology and gaget Inquries.
             </p>
