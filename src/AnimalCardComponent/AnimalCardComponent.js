@@ -1,4 +1,4 @@
-
+import React, { useState } from 'react';
 import FetchData from './AnimalCardComponentUtils';
 import {AnimalCardComponentInstructions} from './AnimalCardComponentInstructions'
 function AnimalCardComponent({ name = 'cat', state = false }) {
