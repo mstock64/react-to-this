@@ -20,7 +20,7 @@ export function FieldComponent({ name, value, callbackSetter, validatorRegex }) 
             <div className="relative p-1">
                 <label className="m-3 font-bold" >{name}</label>
                 <input type="text" className={`p-2 rounded-md text-black border-2 ${status}`} value={value} onChange={eventHandler} />
-                {status == error ? (
+                {status === error ? (
                     <div className="absolute top-0 right-0">
                     <span class="relative flex h-3 w-3">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>

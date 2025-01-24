@@ -10,9 +10,6 @@ export function InquiryComponent() {
     const [email, setEmail] = useState("")
     const [description, setDescription] = useState("")
     const [requestType, setRequestType] = useState("")
-    const sendData = () => {
-        
-    }
     const clearData = () => {
         setEmail("")
         setName("")
@@ -29,9 +26,9 @@ export function InquiryComponent() {
                     <FieldComponent name={"Full Name"} paramValue={name} validatorRegex={nameReg} callbackSetter={setName}/>
                     <FieldComponent name={"Email"} paramValue={email} callbackSetter={setEmail} validatorRegex={emailReg}/>
                     <DropdownComponent options={["Apple Product", "Gaming Console", "Windows Computer"]} label={"Inquiry Type"} callbackSetter={setRequestType}/>
-                {requestType != "" ? (
+                {requestType !== "" ? (
                     <div className="col-span-3 p-3 ">
-                        <DescriptionComponent/>
+                        <DescriptionComponent callbackSetter={setDescription} paramValue={description}/>
                         <div className="flex justify-end gap-6">
                         <input type="submit" className="w-fit p-3 bg-blue-400 hover:bg-blue-650 hover:scale-125 text-white font-bold text-xl rounded-md  ring-2 ring-gray-300 " />
                         <input type="button" className="w-fit p-3 bg-orange-500 hover:bg-blue-650 hover:scale-125 text-white font-bold text-xl rounded-md  ring-2 ring-gray-300 " value={"Clear"} onClick={clearData}/>

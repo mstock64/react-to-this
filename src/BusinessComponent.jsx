@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { IconComponent } from "./IconComponent/IconComponent";
 export function BusinessComponent({callbackSetter}) {
     

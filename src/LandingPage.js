@@ -12,9 +12,9 @@ export function LandingPage() {
                     <BusinessComponent callbackSetter={setState} />
                 </div>
 
-                {state == "business" ? (<InquiryComponent/>) : ('')}
+                {state === "business" ? (<InquiryComponent/>) : ('')}
 
-                {state == "animals" ? (<HomeComponent />) : ('') }
+                {state === "animals" ? (<HomeComponent />) : ('') }
                 </div>
         </>
     )
