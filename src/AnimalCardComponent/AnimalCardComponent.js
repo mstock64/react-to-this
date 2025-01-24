@@ -95,5 +95,5 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
   );
 }
 
-export default AnimalCardComponent;
 
+export default AnimalCardComponent;

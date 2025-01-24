@@ -7,9 +7,8 @@ function App() {
   
   return (
 
-    <div className="bg-[url('./images/large-triangles.svg')] w-full h-full ">
+    <div className=" ">
         <LandingPage/>
-        
     </div>
   );
 }
