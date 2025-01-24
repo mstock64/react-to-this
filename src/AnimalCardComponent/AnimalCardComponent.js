@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FetchData from './AnimalCardComponentUtils';
-
-
+import {AnimalCardComponentInstructions} from './AnimalCardComponentInstructions'
 function AnimalCardComponent({ name = 'cat', state = false }) {
 
   const [data, setData] = useState([]);
   const [previousData, setPreviousData] = useState([])
   const [forwardData, setForwardData] = useState([])
-
+  const [inst, setInst] = useState(true)
   const changePhoto = async () => {
     let payload = await FetchData(name)
 
@@ -18,7 +17,6 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
     setData(payload);
 
   };
-
 
 
   const goBack = () => {
@@ -55,19 +53,17 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
     else
       changePhoto()
   }
-
   return (
     <div class="">
       {data !== undefined && data.length > 0 ? (
         <span>
           {data.map(item => (
+            <div>
             <div class="flex justify-center">
               <div class="relative w-fit">
-                <div class=' ml-2 mr-2'>
+                <div class=' ml-2 mr-2 max-w-screen-lg'>
                   <img src={item.url} class='rounded-lg  shadow-xl' alt={name} />
                 </div>
-
-
                 <div class="">
                   {previousData.length > 1 ?
                     (
@@ -78,7 +74,17 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
                 </div>
               </div>
             </div>
-
+            
+            <div className='m-3 w-full mx-auto'> 
+              <div className='hidden'>{ setTimeout(() => {
+                  setInst(false)
+              }, 60000) }</div>
+              {
+              inst ? (
+                  <AnimalCardComponentInstructions/>
+              ): ('')} 
+                </div>
+            </div>
           ))}
 
         </span>
@@ -91,6 +97,9 @@ function AnimalCardComponent({ name = 'cat', state = false }) {
         </div>
 
       )}
+
+    
+
     </div>
   );
 }

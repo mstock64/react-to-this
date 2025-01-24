@@ -1,11 +1,15 @@
 import { IconComponent } from "./IconComponent/IconComponent";
-export function BusinessComponent({callbackSetter}) {
+export function BusinessComponent({state, callbackSetter}) {
     
     const toggleShow = () => {
-        callbackSetter("animals")
+        if (state === "animals"){
+            callbackSetter("business")
+        }
+        else{
+            callbackSetter("animals")
+        }
     }
     return (
-
         <>
             <div className="p-3 rounded-md  mx-auto bg-white text-black font-thin w-fit shadow-black shadow-sm"> 
             <button onClick={toggleShow} className="">

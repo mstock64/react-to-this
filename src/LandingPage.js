@@ -9,7 +9,7 @@ export function LandingPage() {
             <div className="font-mono w-fit text-left mx-auto h-max">
                 
                 <div className="mx-auto p-3 text-white bg-transparent ">
-                    <BusinessComponent callbackSetter={setState} />
+                    <BusinessComponent callbackSetter={setState} state={state} />
                 </div>
 
                 {state === "business" ? (<InquiryComponent/>) : ('')}
