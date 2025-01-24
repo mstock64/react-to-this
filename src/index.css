@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f0f0; /* Replace with your desired color */
+  background-image: url('./images/large-triangles.svg'); /* Optional: Add background image */ /* Optional: How to scale the image */
+
+  box-sizing: border-box;
 }
 
 code {
