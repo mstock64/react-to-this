@@ -19,7 +19,7 @@ export function InquiryComponent() {
     return (
         <div className=" m-3 p-4 rounded-md text-black bg-white shadow-sm shadow-black">
             <p className="mb-3">
-                Please feel free to reach out we offer for consituation on all Technology and gaget Inquries.
+            Please feel free to reach out to us! We’re here to offer friendly consultations on all your technology and gadget inquiries let’s solve your tech challenges together!
             </p>
             <form method="post" class="" action="" >
                     <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2  gap-3">
